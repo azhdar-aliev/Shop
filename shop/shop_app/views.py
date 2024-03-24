@@ -25,4 +25,18 @@ def product_list_view(request, category_slug=None):
     return render(request, 'shop_app/list.html', context)
 
 
-#корзина
+def product_detail_view(request, slug):
+    product = get_object_or_404(Product, slug=slug, available=True)
+    return render(request, 'shop_app/detail.html', {'product': product})
+
+
+
+
+
+
+
+
+
+
+
+

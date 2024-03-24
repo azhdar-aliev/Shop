@@ -8,8 +8,11 @@
         <h3>{{product.name}}</h3>
         <p>{{product.description}}</p>
         <p>Цена: {{product.price}}</p>
+        <a href="{% url 'shop_app:product_detail' product.slug %}">ссылка</a>
 
     </div>
     {% endfor %}
 </div>
 {% endblock %}
+
+
