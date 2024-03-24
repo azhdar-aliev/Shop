@@ -28,6 +28,12 @@ class Product(models.Model):
         ('CN', 'Китай'),
     ]
 
+    SEX_CHOICES = [
+        ('M', 'Мужское'),
+        ('W', 'Женское'),
+
+    ]
+
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='products')
     name = models.CharField(max_length=100, verbose_name='Название')
     slug = models.SlugField(max_length=100, unique=True)
@@ -39,6 +45,7 @@ class Product(models.Model):
     updated = models.DateTimeField(auto_now=True, verbose_name='Дата изминения')                 # время после пересохранения обЬекта
     size = models.IntegerField(choices=SIZE_CHOICES)
     manufacturer = models.CharField(max_length=2, choices=MANUFACTURER_CHOICES)
+    sex = models.CharField(max_length=1, choices=SEX_CHOICES)
 
     class Meta:
         ordering = ('name',)
